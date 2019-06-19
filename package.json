@@ -20,6 +20,7 @@
     "frisby": "next",
     "cucumber": "^5.0.2",
     "jest": "^24.8.0",
+    "inversify": "^5.0.1",
     "jest-cucumber": "^2.0.11",
     "guid-typescript": "1.0.9",
     "ts-jest": "^24.0.2",
