@@ -1,31 +1,31 @@
 import axios, { AxiosResponse } from 'axios';
+import { World } from "../world/World";
+import continer from "../../config/ioc_config";
+import { injectable, inject } from 'inversify';
 
-export namespace Rest {
-    export class World {
-        apiResponses: AxiosResponse[];
+
+@injectable()
+export class RestCaller {
+    
+    private world: World
+    
+    constructor(@inject(World) world: World) {
+        this.world = world;
     }
 
-    export class RestCaller {
-        private axiosRespone: AxiosResponse<any>;
-         
-        makeRestCall = async uri => {
-            this.axiosRespone = await axios.get(uri);
-            return this.axiosRespone;
-        }
-
-        get = async uri  => {
-            this.axiosRespone = await axios.get(uri);
-            return this.axiosRespone;
-        }
-
-        post = async uri => {
-            this.axiosRespone = await axios.post(uri);
-            return this.axiosRespone;
-        }
-
-        put = async uri => {
-            this.axiosRespone = await axios.put(uri);
-            return this.axiosRespone;
-        } 
+    makeRestCall = uri => {
+        return axios.get(uri);
     }
+
+    get = uri  => {
+        this.world.setMessage("this is a second message");
+    }
+
+    post = uri => {
+        this.world.addToResponsePromisesList(axios.post(uri));
+    }
+
+    put = uri => {
+        this.world.addToResponsePromisesList(axios.put(uri));
+    } 
 }
