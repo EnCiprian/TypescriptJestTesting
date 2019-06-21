@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import container from "../../common/config/ioc_config";
 import { SetWorldMessage } from "../../common/functionality/misc/SetWorldMessage";
 

@@ -3,6 +3,7 @@
         "module": "commonjs",
         "sourceMap": true,
         "watch": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
     }
 }
