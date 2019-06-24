@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import container from "../../common/config/ioc_config";
 import { RestCaller } from "../../common/functionality/calls/MakeRestCall";
 

@@ -1,5 +1,3 @@
-import "reflect-metadata";
-
 import { defineFeature, loadFeature } from "jest-cucumber";
 import axios, { AxiosResponse } from 'axios';
 import { RestCaller } from '../common/functionality/calls/MakeRestCall';

@@ -18,7 +18,7 @@ export class RestCaller {
     }
 
     get = uri  => {
-        this.world.setMessage("this is a second message");
+        this.world.addToResponsePromisesList(axios.get(uri));
     }
 
     post = uri => {
