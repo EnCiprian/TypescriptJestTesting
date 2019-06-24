@@ -5,7 +5,7 @@ import { injectable } from 'inversify';
 
 @injectable()
 export class World {
-    private responsePromises: Promise<AxiosResponse<any>>[];
+    private responsePromises: Promise<AxiosResponse<any>>[] = [];
     private message: string;
     private secondMessage: string;
 
