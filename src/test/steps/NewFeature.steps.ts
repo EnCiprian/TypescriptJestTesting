@@ -6,13 +6,13 @@ import { World } from "../common/functionality/world/World";
 import container from "../common/config/ioc_config"; 
 import { whenIDoTheStandardGet } from "./common/CommonRestCallsFunctionality";
 import { andISetTheWorldMessage } from "./common/CommonMiscFunctionality";
-import { verifyGetResponseWorked, verifyGetResponseWorkedAgain } from "./common/CommonVerifyStep";
+import { verifyGetResponseWorkedForNewFeature } from "./common/CommonVerifyStep";
 
-const feature = loadFeature("./src/test/features/TestFeature.feature"); 
+const newFeature = loadFeature("./src/test/features/NewFeature.feature"); 
 
-defineFeature(feature, test => {
+defineFeature(newFeature, test => {
     
-    test("Get the employees details", ({ given, when, and, then }) => {
+    test("Get the employees details in the new feature", ({ given, when, and, then }) => {
         let apiResponse: AxiosResponse<any>;
         let caller: RestCaller;
         let verifier: VerifyResponse;
@@ -25,22 +25,6 @@ defineFeature(feature, test => {
 
         andISetTheWorldMessage(and);
 
-        verifyGetResponseWorked(then);
-    });
-
-    test("Get the employees personal details", ({ given, when, and, then }) => {
-        let apiResponse: AxiosResponse<any>;
-        let caller: RestCaller;
-        let verifier: VerifyResponse;
-
-        given('that i have the employee api', () => {
-
-        });
-
-        whenIDoTheStandardGet(when);
-
-        andISetTheWorldMessage(and);
-
-        verifyGetResponseWorkedAgain(then);
+        verifyGetResponseWorkedForNewFeature(then);
     });
 });
